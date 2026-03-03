@@ -1,7 +1,10 @@
 import pandas as pd
-import os
+import logging
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def load_gaming_data(file_path):
+    logging.info(f"Attempting to load data from {file_path}")
     """
     Template function to load synthetic gaming data.
     """
