@@ -13,3 +13,11 @@ As a contract data analyst, I have been tasked with:
 * Identifying "Peak Usage" behaviors across the user base.
 * Cleaning and validating raw session logs for downstream reporting.
 * Visualizing the correlation between game achievements and session length.
+
+## Project Progress Tracking
+- [x] Project Initialization & Git Setup
+- [x] Environment Configuration
+- [x] Data Loading Utility Template
+- [ ] Data Ingestion & Validation (Scheduled)
+- [ ] Exploratory Data Analysis (Scheduled)
+- [ ] Statistical Reporting (Scheduled)
