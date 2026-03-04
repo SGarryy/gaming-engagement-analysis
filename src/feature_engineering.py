@@ -21,3 +21,7 @@ if __name__ == "__main__":
     if df is not None:
         df_cleaned = rename_columns(df)
         print(df_cleaned.columns)
+
+        output_path = "data/processed/gaming_data_cleaned.csv"
+        df_cleaned.to_csv(output_path, index=False)
+        logging.info(f"Cleaned data saved to {output_path}")
