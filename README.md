@@ -17,19 +17,19 @@ As a contract data analyst, I have been tasked with:
 ## Project Structure
 ```text
 ├── data/
-│   ├── raw/                # Original, immutable data dumps
-│   └── processed/          # Cleaned data ready for analysis
-├── notebooks/              # Interactive EDA and discovery
-├── src/                    # Production-grade Python utilities
-│   ├── data_loader.py      # Secure data ingestion logic
-│   ├── validate_data.py    # Integrity and null-check scripts
-│   ├── feature_engineering.py # Schema standardization
-│   ├── summary_stats.py    # Automated reporting logic
-│   └── visualize_trends.py # Distribution plotting utilities
-├── reports/                # Generated charts and summary text files
-├── .env.example            # Environment configuration template
-├── requirements.txt        # Project dependencies
-└── README.md               # Project documentation and roadmap
+│   ├── raw/                                # Original, immutable data dumps
+│   └── processed/                          # Cleaned data ready for analysis
+├── notebooks/                              # Interactive EDA and discovery
+├── src/                                    # Production-grade Python utilities
+│   ├── data_loader.py                      # Secure data ingestion logic
+│   ├── validate_data.py                    # Integrity and null-check scripts
+│   ├── feature_engineering.py              # Schema standardization
+│   ├── summary_stats.py                    # Automated reporting logic
+│   └── visualize_trends.py                 # Distribution plotting utilities
+├── reports/                                # Generated charts and summary text files
+├── .env.example                            # Environment configuration template
+├── requirements.txt                        # Project dependencies
+└── README.md                               # Project documentation and roadmap
 ```
 ### Directory Descriptions
 * **data/raw**: Contains the initial CSV ingestions. These files are never modified directly to ensure data lineage.
