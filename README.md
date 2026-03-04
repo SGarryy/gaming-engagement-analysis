@@ -14,13 +14,12 @@ As a contract data analyst, I have been tasked with:
 * Cleaning and validating raw session logs for downstream reporting.
 * Visualizing the correlation between game achievements and session length.
 
-## Data Dictionary (Expected Schema)
-| Variable | Description | Type |
+## Processed Data Schema
+| Internal Name | Original Name | Description |
 | :--- | :--- | :--- |
-| PlayerID | Unique identifier for each user | String |
-| PlayTimeHours | Total hours spent in-game | Float |
-| SessionsPerWeek | Frequency of logins per 7 days | Integer |
-| AvgSessionDuration | Average length of a single session | Float |
+| session_duration_hr | PlayTimeHours | Total hours logged |
+| weekly_frequency | SessionsPerWeek | Login count per week |
+| milestones_reached | AchievementsUnlocked | In-game progression |
 
 ## Project Progress Tracking
 - [x] Project Initialization & Git Setup
