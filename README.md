@@ -31,6 +31,10 @@ As a contract data analyst, I have been tasked with:
 ├── requirements.txt        # Project dependencies
 └── README.md               # Project documentation and roadmap
 ```
+### Directory Descriptions
+* **data/raw**: Contains the initial CSV ingestions. These files are never modified directly to ensure data lineage.
+* **src/**: Houses modular Python scripts. Moving logic from notebooks to scripts ensures the analysis is reproducible.
+* **reports/**: The destination for all non-code outputs, including statistical summaries and PNG visualizations for stakeholders.
 
 ## Processed Data Schema
 | Internal Name | Original Name | Description |
