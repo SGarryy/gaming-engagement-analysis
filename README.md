@@ -14,6 +14,24 @@ As a contract data analyst, I have been tasked with:
 * Cleaning and validating raw session logs for downstream reporting.
 * Visualizing the correlation between game achievements and session length.
 
+## Project Structure
+```text
+├── data/
+│   ├── raw/                # Original, immutable data dumps
+│   └── processed/          # Cleaned data ready for analysis
+├── notebooks/              # Interactive EDA and discovery
+├── src/                    # Production-grade Python utilities
+│   ├── data_loader.py      # Secure data ingestion logic
+│   ├── validate_data.py    # Integrity and null-check scripts
+│   ├── feature_engineering.py # Schema standardization
+│   ├── summary_stats.py    # Automated reporting logic
+│   └── visualize_trends.py # Distribution plotting utilities
+├── reports/                # Generated charts and summary text files
+├── .env.example            # Environment configuration template
+├── requirements.txt        # Project dependencies
+└── README.md               # Project documentation and roadmap
+```
+
 ## Processed Data Schema
 | Internal Name | Original Name | Description |
 | :--- | :--- | :--- |
