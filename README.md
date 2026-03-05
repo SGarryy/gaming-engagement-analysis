@@ -14,6 +14,11 @@ As a contract data analyst, I have been tasked with:
 * Cleaning and validating raw session logs for downstream reporting.
 * Visualizing the correlation between game achievements and session length.
 
+## 💡 Project Inspiration & Context
+This project is inspired by real-world analytical challenges encountered during my contract-based role at a cloud-focused technology firm. While the methodologies and workflows mirror my professional approach to data analysis, this repository utilizes an **independently sourced, public dataset** to ensure full compliance with non-disclosure agreements (NDAs) and data privacy standards. 
+
+The goal here is to demonstrate the end-to-end analytical lifecycle—from raw ingestion to business insights—in a sanitized, public-facing environment.
+
 ## Project Structure
 ```text
 ├── data/
