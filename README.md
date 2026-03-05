@@ -19,6 +19,12 @@ This project is inspired by real-world analytical challenges encountered during 
 
 The goal here is to demonstrate the end-to-end analytical lifecycle—from raw ingestion to business insights—in a sanitized, public-facing environment.
 
+## Analytical Assumptions
+To simulate a corporate environment, the following assumptions were made:
+* **User Engagement:** High milestones with low play-time are treated as "High Efficiency" users.
+* **Infrastructure Cost:** Server load is assumed to scale linearly with concurrent sessions.
+* **Data Integrity:** Outliers exceeding the 99th percentile are flagged for investigation rather than immediate deletion.
+
 ## Project Structure
 ```text
 ├── data/
