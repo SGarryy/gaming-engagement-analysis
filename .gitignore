@@ -1,5 +1,6 @@
-data/*.csv
-data/*.zip
+data/raw/*.csv
+data/processed/*.csv
+data/processed/*.npy
+models/*.pkl
+.venv/
 __pycache__/
-.ipynb_checkpoints/
-*.DS_Store
