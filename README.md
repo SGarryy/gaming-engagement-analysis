@@ -65,6 +65,10 @@ To simulate a corporate environment, the following assumptions were made:
 - [x] Initial Summary Reporting
 - [x] Exploratory Data Analysis
 - [x] Data Scaling & Clustering Preparation
+- [x] Outlier & Correlation Analysis
+- [x] Feature Scaling & Elbow Optimization
+- [/] K-Means Clustering & Persona Mapping (In Progress)
+- [ ] Business Impact & Recommendations (Scheduled)
 
 ## Data Validation Results
 * **Integrity Check:** Successfully loaded 40,000+ records. Validated file existence and non-empty dataset.
