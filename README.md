@@ -75,3 +75,10 @@ To simulate a corporate environment, the following assumptions were made:
 * **Missing Values:** Null value detection completed across all columns.
 * **Data Types:** Verified numeric column detection and data integrity.
 * **Output Artifacts:** Processed data saved to `data/processed/gaming_data_cleaned.csv` and scaled features exported to `data/processed/scaled_gaming_data.npy` for downstream modeling.
+
+### 👤 User Persona Definitions
+Based on the clustering results, we have identified four distinct user segments:
+1. **The Hardcore Grinders:** High session hours and high milestone completion. These are the core revenue drivers.
+2. **The Weekend Casuals:** Low weekly frequency but moderate session lengths during active periods.
+3. **The Social Butterflies:** High login frequency but very short session durations.
+4. **The Idle/At-Risk Users:** Low engagement across all metrics; high priority for retention marketing.
