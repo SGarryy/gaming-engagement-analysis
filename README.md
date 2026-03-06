@@ -17,16 +17,15 @@ Through K-Means clustering, we successfully segmented the user base into 4 actio
 | **Social Butterflies** | High Frequency / Short Sessions | Focus on low-latency social features. |
 | **Idle/At-Risk Users** | Low engagement across all metrics | Deploy automated re-engagement campaigns. |
 
-
 ---
 
 ## 🏗 Project Structure
-```text
+```plaintext
 ├── data/
 │   ├── raw/                            # Immutable source data dumps
 │   └── processed/                      # Cleaned data and scaled features (.npy)
 ├── models/                             # Serialized ML models (.pkl)
-├── notebooks/                    
+├── notebooks/
 │   └── 01_initial_exploration.ipynb    # Interactive EDA, Elbow Method, and Cluster Discovery
 ├── src/                                # Production-grade Python utilities
 │   ├── check_env.py                    # Environment and dependency verification
@@ -36,7 +35,7 @@ Through K-Means clustering, we successfully segmented the user base into 4 actio
 │   ├── summary_stats.py                # Automated reporting of descriptive statistics
 │   ├── validate_data.py                # Integrity, null-check, and data health scripts
 │   └── visualize_trends.py             # Distribution plotting and trend visualization
-├── reports/                      
+├── reports/
 │   └── cluster_analysis_report.md      # Executive persona analysis and business strategy
 ├── requirements.txt                    # Project dependencies
 └── README.md                           # Project documentation
@@ -64,7 +63,6 @@ Through K-Means clustering, we successfully segmented the user base into 4 actio
 * **Feature Engineering:** Implemented **StandardScaler** for $z$-score normalization to ensure distance-based clustering accuracy.
 * **Optimization:** Utilized the **Elbow Method** to verify the optimal cluster count ($k=4$).
 
-
 ---
 
 ## 🛠 Project Progress Tracking
@@ -75,30 +73,28 @@ Through K-Means clustering, we successfully segmented the user base into 4 actio
 - [x] Feature Scaling & Elbow Method Optimization
 - [x] K-Means Clustering Implementation & Model Saving
 - [x] Cluster Profiling & Persona Development
-- [/] Business Impact & Recommendations (In Progress)
+- [ ] Business Impact & Recommendations (In Progress)
 
 ---
 
 ## 🚀 Setup & Usage
-1. **Clone the repo:**
+
+**1. Clone the repo:**
 ```bash
 git clone <repo-url>
 ```
----
 
-2. **Install dependencies:**
+**2. Install dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
----
 
-3. **Run Environment Check:**
+**3. Run Environment Check:**
 ```bash
 python src/check_env.py
 ```
----
 
-4. **Run Modeling Pipeline:**
+**4. Run Modeling Pipeline:**
 ```bash
 python src/cluster_model.py
 ```
