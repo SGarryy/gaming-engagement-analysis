@@ -17,3 +17,9 @@ if __name__ == "__main__":
     SCALED_PATH = 'data/processed/scaled_gaming_data.npy'
     model, labels = apply_clustering(SCALED_PATH)
     print(f"Clustering complete. Identified {len(np.unique(labels))} user segments.")
+
+# Save the model for future use
+    import os
+    if not os.path.exists('models'): os.makedirs('models')
+    joblib.dump(model, 'models/gaming_kmeans_v1.pkl')
+    print("Model saved to models/gaming_kmeans_v1.pkl")
