@@ -21,7 +21,7 @@ Through K-Means clustering, we successfully segmented the user base into 4 actio
 ---
 
 ## 🏗 Project Structure
-\\\text
+```text
 ├── data/
 │   ├── raw/                            # Immutable source data dumps
 │   └── processed/                      # Cleaned data and scaled features (.npy)
@@ -40,7 +40,7 @@ Through K-Means clustering, we successfully segmented the user base into 4 actio
 │   └── cluster_analysis_report.md      # Executive persona analysis and business strategy
 ├── requirements.txt                    # Project dependencies
 └── README.md                           # Project documentation
-\
+```
 
 ### **Directory Descriptions**
 * **src/**: Houses modular Python scripts. Moving logic from notebooks to scripts ensures the analysis is reproducible and scalable.
@@ -79,21 +79,21 @@ Through K-Means clustering, we successfully segmented the user base into 4 actio
 
 ## 🚀 Setup & Usage
 1. **Clone the repo:**
-\\\bash
+```bash
 git clone <repo-url>
-\
+```
 
 2. **Install dependencies:**
-\\\bash
+```bash
 pip install -r requirements.txt
-\
+```
 
 3. **Run Environment Check:**
-\\\bash
+```bash
 python src/check_env.py
-\
+```
 
 4. **Run Modeling Pipeline:**
-\\\bash
+```bash
 python src/cluster_model.py
-\
+```
