@@ -82,3 +82,9 @@ Based on the clustering results, we have identified four distinct user segments:
 2. **The Weekend Casuals:** Low weekly frequency but moderate session lengths during active periods.
 3. **The Social Butterflies:** High login frequency but very short session durations.
 4. **The Idle/At-Risk Users:** Low engagement across all metrics; high priority for retention marketing.
+
+## 📊 Final Results & Insights
+Through K-Means clustering, we successfully segmented the 40,000+ user base into 4 actionable personas. This allows for:
+* **Infrastructure Optimization:** Identifying peak load times for "Power User" segments.
+* **Churn Prediction:** Flagging "At-Risk" segments before they leave the platform.
+* **Targeted Marketing:** Customizing rewards based on "Grinder" vs "Casual" behavior.
