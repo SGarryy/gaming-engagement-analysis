@@ -42,6 +42,8 @@ Through K-Means clustering, we successfully segmented the user base into 4 actio
 └── README.md                           # Project documentation
 ```
 
+---
+
 ### **Directory Descriptions**
 * **src/**: Houses modular Python scripts. Moving logic from notebooks to scripts ensures the analysis is reproducible and scalable.
 * **notebooks/**: Contains the interactive discovery phase where initial visualizations and model parameter tuning (Elbow Method) occurred.
@@ -82,16 +84,19 @@ Through K-Means clustering, we successfully segmented the user base into 4 actio
 ```bash
 git clone <repo-url>
 ```
+---
 
 2. **Install dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
+---
 
 3. **Run Environment Check:**
 ```bash
 python src/check_env.py
 ```
+---
 
 4. **Run Modeling Pipeline:**
 ```bash
