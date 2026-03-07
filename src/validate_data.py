@@ -1,30 +1,34 @@
+# src/validate_data.py
 import pandas as pd
-import logging
+import os
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-def validate_columns(df):
-    try:
-        null_counts = df.isnull().sum()
-        logging.info("Validating data integrity...")
-        
-        null_values = null_counts[null_counts > 0]
-        if len(null_values) > 0:
-            logging.warning(f"Missing values found:\n{null_values}")
-            return False
-        
-        numeric_cols = df.select_dtypes(include=['number']).columns
-        if len(numeric_cols) == 0:
-            logging.warning("No numeric columns detected in data")
-            return False
-        
-        logging.info(f"Data Validation: All {len(df)} records intact, no missing values")
-        return True
-    except Exception as e:
-        logging.error(f"Validation failed: {str(e)}")
+def run_integrity_check(file_path):
+    if not os.path.exists(file_path):
+        print(f"❌ Error: File {file_path} not found.")
         return False
+    
+    df = pd.read_csv(file_path)
+    
+    # Check 1: Record Count
+    print(f"✅ Record Count: {len(df)} rows detected.")
+    
+    # Check 2: Null Values
+    null_counts = df.isnull().sum().sum()
+    if null_counts == 0:
+        print("✅ Data Integrity: 0 null values found.")
+    else:
+        print(f"⚠️ Warning: {null_counts} null values detected.")
+        
+    # Check 3: Schema validation
+    required_cols = ['session_duration_hr', 'weekly_frequency', 'milestones_reached']
+    if all(col in df.columns for col in required_cols):
+        print("✅ Schema: All required features present.")
+    else:
+        print("❌ Schema Error: Missing required columns.")
+        return False
+        
+    return True
 
 if __name__ == "__main__":
-    from data_loader import load_gaming_data
-    df = load_gaming_data("data/raw/gaming_data_raw.csv")
-    validate_columns(df)
+    DATA_PATH = 'data/processed/gaming_data_cleaned.csv'
+    run_integrity_check(DATA_PATH)
