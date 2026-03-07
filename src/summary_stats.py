@@ -1,33 +1,33 @@
+# src/summary_stats.py
 import pandas as pd
-import logging
 import os
-from pathlib import Path
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+def generate_persona_report(data_path):
+    if not os.path.exists(data_path):
+        print(f"❌ Error: File {data_path} not found.")
+        return
 
-def generate_summary(file_path):
-    try:
-        if not os.path.exists(file_path):
-            raise FileNotFoundError(f"Input file not found: {file_path}")
-        
-        df = pd.read_csv(file_path)
-        
-        if df.empty:
-            raise ValueError("Input file is empty")
-        
-        summary = df.describe()
-        
-        output_dir = Path("reports")
-        output_dir.mkdir(parents=True, exist_ok=True)
-        
-        output_path = output_dir / "summary_statistics.txt"
-        summary.to_csv(output_path, sep='\t')
-        
-        logging.info(f"Summary statistics generated at {output_path}")
-        return summary
-    except Exception as e:
-        logging.error(f"Failed to generate summary: {str(e)}")
-        raise
+    df = pd.read_csv(data_path)
+    
+    if 'cluster' not in df.columns:
+        print("❌ Error: Data not yet clustered. Run cluster_model.py first.")
+        return
+
+    # Calculate mean metrics for each persona
+    report = df.groupby('cluster').agg({
+        'session_duration_hr': 'mean',
+        'weekly_frequency': 'mean',
+        'milestones_reached': 'mean'
+    }).round(2)
+    
+    print("\n--- User Persona Summary Report ---")
+    print(report)
+    
+    # Export for stakeholders
+    output_path = 'reports/persona_summary_stats.csv'
+    report.to_csv(output_path)
+    print(f"\n✅ Report exported to {output_path}")
 
 if __name__ == "__main__":
-    generate_summary("data/processed/gaming_data_cleaned.csv")
+    PROCESSED_DATA = 'data/processed/gaming_user_segments.csv'
+    generate_persona_report(PROCESSED_DATA)
