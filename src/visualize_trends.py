@@ -1,40 +1,27 @@
-import pandas as pd
+# src/visualize_trends.py
 import matplotlib.pyplot as plt
 import seaborn as sns
-import logging
+import pandas as pd
 import os
-from pathlib import Path
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+def plot_cluster_comparison(data_path):
+    if not os.path.exists(data_path):
+        print("❌ Data file missing for visualization.")
+        return
 
-def plot_distributions(file_path):
-    try:
-        if not os.path.exists(file_path):
-            raise FileNotFoundError(f"Input file not found: {file_path}")
-        
-        df = pd.read_csv(file_path)
-        
-        if df.empty:
-            raise ValueError("Input file is empty")
-        
-        if 'session_duration_hr' not in df.columns:
-            raise KeyError("Column 'session_duration_hr' not found in data")
-        
-        output_dir = Path("reports")
-        output_dir.mkdir(parents=True, exist_ok=True)
-        
-        plt.figure(figsize=(10, 6))
-        sns.histplot(df['session_duration_hr'], bins=30, kde=True)
-        plt.title('Distribution of User Session Durations')
-        
-        output_path = output_dir / "duration_distribution.png"
-        plt.savefig(output_path)
-        plt.close()
-        
-        logging.info(f"Plot saved to {output_path}")
-    except Exception as e:
-        logging.error(f"Failed to create plot: {str(e)}")
-        raise
+    df = pd.read_csv(data_path)
+    plt.figure(figsize=(10, 6))
+    
+    # Visualizing Progression vs Persona
+    sns.barplot(data=df, x='cluster', y='milestones_reached', palette='magma')
+    
+    plt.title('In-Game Progression Comparison by User Persona')
+    plt.xlabel('User Cluster / Persona')
+    plt.ylabel('Average Milestones Reached')
+    
+    output_img = 'reports/cluster_progression_comparison.png'
+    plt.savefig(output_img)
+    print(f"✅ Visualization saved to {output_img}")
 
 if __name__ == "__main__":
-    plot_distributions("data/processed/gaming_data_cleaned.csv")
+    plot_cluster_comparison('data/processed/gaming_user_segments.csv')
