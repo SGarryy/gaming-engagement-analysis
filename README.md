@@ -98,3 +98,21 @@ python src/check_env.py
 ```bash
 python src/cluster_model.py
 ```
+
+## 🚀 Production Workflow
+To run the full analytical pipeline from scratch, execute the following commands in order:
+
+1. **Validate Data Health:**
+```bash
+python src/validate_data.py
+```
+
+2. **Generate User Segments:**
+```bash
+python src/cluster_model.py
+```
+
+3. **Export Behavioral Reports:**
+```bash
+python src/summary_stats.py
+```
