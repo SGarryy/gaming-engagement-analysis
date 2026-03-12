@@ -1,4 +1,7 @@
-# Gaming Engagement & Performance Analysis
+# Gaming Engagement & Performance Analysis 🎮📊
+**Professional Data Science Case Study: User Segmentation & Resource Optimization**
+
+> **Tags:** #DataScience #MachineLearning #KMeans #CustomerAnalytics #CloudGaming #Python
 
 ## 🎯 Project Overview
 This repository contains a professional-grade behavioral analysis of 40,000+ user records from a cloud-based gaming platform. By leveraging **Unsupervised Machine Learning (K-Means Clustering)**, this project segments users into actionable personas to assist in server load balancing, resource optimization, and targeted retention strategies.
