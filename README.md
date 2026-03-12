@@ -116,3 +116,9 @@ python src/cluster_model.py
 ```bash
 python src/summary_stats.py
 ```
+## ✅ Quality Assurance
+To verify the stability of the analytical pipeline, run the automated test suite:
+
+```bash
+python tests/test_pipeline.py
+```
