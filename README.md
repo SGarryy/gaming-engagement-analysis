@@ -35,12 +35,17 @@ Through K-Means clustering, we successfully segmented the user base into 4 actio
 │   ├── cluster_model.py                # K-Means implementation and model persistence
 │   ├── data_loader.py                  # Secure data ingestion logic
 │   ├── feature_engineering.py          # Schema standardization and cleaning
+│   ├── feature_scaling.py              # Feature normalization (z-score)
 │   ├── summary_stats.py                # Automated reporting of descriptive statistics
 │   ├── validate_data.py                # Integrity, null-check, and data health scripts
 │   └── visualize_trends.py             # Distribution plotting and trend visualization
+├── tests/
+│   └── test_pipeline.py                # Unit tests for pipeline stability
 ├── reports/
-│   └── cluster_analysis_report.md      # Executive persona analysis and business strategy
-├── requirements.txt                    # Project dependencies
+│   ├── cluster_analysis_report.md      # Clustering findings and recommendations
+│   └── Executive_Summary.md            # High-level summary for stakeholders
+├── requirements.txt                    # Project dependencies (with versions)
+├── demo.py                             # One-command execution of full pipeline
 └── README.md                           # Project documentation
 ```
 
@@ -50,6 +55,7 @@ Through K-Means clustering, we successfully segmented the user base into 4 actio
 * **src/**: Houses modular Python scripts. Moving logic from notebooks to scripts ensures the analysis is reproducible and scalable.
 * **notebooks/**: Contains the interactive discovery phase where initial visualizations and model parameter tuning (Elbow Method) occurred.
 * **reports/**: The destination for executive-facing documentation summarizing the analytical findings.
+* **tests/**: Unit tests to verify pipeline integrity and data sanity checks.
 
 ---
 
@@ -86,43 +92,102 @@ Through K-Means clustering, we successfully segmented the user base into 4 actio
 **1. Clone the repo:**
 ```bash
 git clone <repo-url>
+cd gaming-engagement-analysis
 ```
 
-**2. Install dependencies:**
+**2. Create a virtual environment:**
+```bash
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+source .venv/bin/activate  # macOS/Linux
+```
+
+**3. Install dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
 
-**3. Run Environment Check:**
+## ⚡ Quick Start: Run Complete Pipeline
+The easiest way to execute the entire analysis pipeline is:
+
+```bash
+python demo.py
+```
+
+This single command will:
+1. ✅ Verify environment setup and dependencies
+2. 🧹 Clean and standardize raw data
+3. 📊 Scale features for clustering (z-score normalization)
+4. 🔍 Validate data integrity
+5. 🤖 Apply K-Means clustering with $k=4$
+6. 📈 Generate business strategy recommendations
+7. 📊 Create visualization outputs
+
+---
+
+## 🎯 Manual Workflow (Step-by-Step)
+If you prefer to run steps individually:
+
+**Step 0: Verify Environment**
 ```bash
 python src/check_env.py
 ```
 
-**4. Run Modeling Pipeline:**
+**Step 1: Feature Engineering (Clean & Standardize)**
 ```bash
-python src/cluster_model.py
+python src/feature_engineering.py
 ```
+*Standardizes column names from raw data:*
+- `PlayTimeHours` → `session_duration_hr`
+- `SessionsPerWeek` → `weekly_frequency`
+- `AchievementsUnlocked` → `milestones_reached`
 
-## 🚀 Production Workflow
-To run the full analytical pipeline from scratch, execute the following commands in order:
+**Step 2: Feature Scaling (Normalization)**
+```bash
+python src/feature_scaling.py
+```
+*Applies z-score normalization to ensure fair distance-based clustering.*
 
-1. **Validate Data Health:**
+**Step 3: Data Validation**
 ```bash
 python src/validate_data.py
 ```
+*Checks for null values, schema consistency, and record count.*
 
-2. **Generate User Segments:**
+**Step 4: ML Clustering & Model Training**
 ```bash
 python src/cluster_model.py
 ```
+*Fits K-Means model ($k=4$) and saves the trained model to `/models/`.*
 
-3. **Export Behavioral Reports:**
+**Step 5: Generate Strategy Reports**
 ```bash
 python src/summary_stats.py
 ```
+*Creates persona profiles and business recommendations for each segment.*
+
+**Step 6: Visualize Results**
+```bash
+python src/visualize_trends.py
+```
+*Generates cluster comparison charts and saves to `/reports/`.*
+
+---
+
 ## ✅ Quality Assurance
 To verify the stability of the analytical pipeline, run the automated test suite:
 
 ```bash
+python -m pytest tests/test_pipeline.py -v
+```
+
+Or using unittest:
+```bash
 python tests/test_pipeline.py
 ```
+
+Tests verify:
+- ✓ File existence and directory structure
+- ✓ Required source modules present
+- ✓ Missing file handling
+- ✓ Required columns defined

@@ -5,7 +5,7 @@ required_packages = {
     'numpy': '1.26.0',
     'matplotlib': '3.8.0',
     'seaborn': '0.13.0',
-    'sklearn': '1.3.0'
+    'sklearn': '1.3.0'  # Installed as scikit-learn but imported as sklearn
 }
 
 missing = []
@@ -14,8 +14,9 @@ for package, required_version in required_packages.items():
         module = __import__(package)
         actual_version = module.__version__
         print(f"✓ {package}: {actual_version}")
-    except ImportError:
+    except ImportError as e:
         missing.append(package)
+        print(f"✗ {package}: Not installed")
 
 if missing:
     print(f"\n✗ Missing packages: {', '.join(missing)}")
